@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    
+    font-family: sans-serif;
+
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+}
+
+/* HEADER */
+.header {
+    width: 100vw;
+    min-height: 400px;
+
+    background-color: rgb(60, 60, 255);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input {
+    width: 50vw;
+    min-width: 300px;
+
+    padding: 1rem;
+
+    font-size: 1.2rem;
+}
+
+.button-content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.button {
+    --buttonColor: #fff;
+
+    padding: .5rem 1rem;
+    margin: 0 1rem;
+
+    background-color: transparent;
+    color: var(--buttonColor);
+    border: 3px solid var(--buttonColor);
+
+    font-size: 1.2rem;
+
+    transition: all .3s ease;
+
+    cursor: pointer;
+}
+
+.button:active,
+.button:focus {
+    outline: 0;
+    transform: scale(.98);
+}
+
+/* MAIN */
+
+.main {
+    width: 60vw;
+
+    margin: auto;
+}
+
+.list {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    counter-reset: listCounter;
+}
+
+.list-item {
+    padding: 1.5rem .5rem;
+    list-style: none;
+    border-bottom: 3px solid #c9c7c7;
+    cursor: pointer;
+    counter-increment: listCounter;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.list-item-text {
+    padding-left: 2.3rem;
+    padding-right: 1.5rem;
+    text-align: justify;
+    word-break: break-all;
+
+}
+
+.list-item::before {
+    content: counter(listCounter) '. '; 
+    font-weight: 700;
+    position: absolute;
+    align-self: start;
+}
+
+.list-item:hover {
+    background-color: #eeeeee;
+}
+
+.remove-item {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    align-self: start;
+    user-select: none;    
+}
+
+@media screen and (max-width: 800px) {
+    .input {
+        width: 80vw;
+        padding: .8rem;
+    }
+
+    .button-content {
+        margin-top: 2rem;
+    }
+
+    .button {
+        margin: 0 .5rem;
+    }
+
+    .main {
+        width: 90vw;
+    }
+
+    .list-item {
+        padding: 1.5rem 1.5rem 1.5rem .5rem;
+    }
+}
